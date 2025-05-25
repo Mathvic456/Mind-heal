@@ -1,41 +1,43 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
-const ThemeToggle = () => {
-  const [darkMode, setDarkMode] = useState(false);
+export default function AutoDarkToggle() {
+  const [isDark, setIsDark] = useState(false);
 
-  // Initialize theme from localStorage or system preference
+  // Toggle dark mode based on system preference
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+    localStorage.setItem('darkMode', !isDark);
+  };
+
+  // Initialize from localStorage or system preference
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    setDarkMode(savedMode ? savedMode === 'true' : systemPrefersDark);
+    setIsDark(savedMode ? savedMode === 'true' : systemPrefersDark);
   }, []);
 
-  // Apply dark mode class and save preference
+  // Apply class changes
   useEffect(() => {
-    if (darkMode) {
+    if (isDark) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('darkMode', 'true');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('darkMode', 'false');
     }
-  }, [darkMode]);
+  }, [isDark]);
 
   return (
     <button
-      onClick={() => setDarkMode(!darkMode)}
-      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-      aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      onClick={toggleDarkMode}
+      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
-      {darkMode ? (
-        <Sun className="w-5 h-5 text-yellow-400" />
+      {isDark ? (
+        <Sun className="w-5 h-5 text-amber-300" />
       ) : (
         <Moon className="w-5 h-5 text-gray-700" />
       )}
     </button>
   );
-};
-
-export default ThemeToggle;
+}
