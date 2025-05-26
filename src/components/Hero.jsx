@@ -1,7 +1,36 @@
 import { motion } from "framer-motion";
 import { HeartPulse, HandHeart, Shield, Users, Activity, Eye, Leaf, BarChart2, Target, Award, Clock, School, MessageSquare, ShieldAlert } from "lucide-react";
+import { useState } from "react";
+
+
+
+const helpTypes = [
+  "Trauma Counseling",
+  "Addiction Support",
+  "Mental Health Assessment",
+  "Emergency Help",
+  "General Inquiry"
+];
+
+
 
 export default function Hero() {
+
+
+  const [showHelpModal, setShowHelpModal] = useState(false);
+  const [showProgramModal, setShowProgramModal] = useState(false);
+  const [selectedHelp, setSelectedHelp] = useState(helpTypes[0]);
+  const [helpMessage, setHelpMessage] = useState("");
+
+  const handleHelpSubmit = (e) => {
+    e.preventDefault();
+    const mailtoLink = `mailto:contact@tarfoundation.org?subject=${encodeURIComponent(
+      selectedHelp
+    )}&body=${encodeURIComponent(helpMessage)}`;
+    window.location.href = mailtoLink;
+  };
+
+
   return (
     <section className="relative overflow-hidden">
       {/* Background Gradient */}
@@ -35,14 +64,16 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <motion.button
+             <motion.button
+                onClick={() => setShowHelpModal(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-6 py-3 rounded-lg transition shadow-lg"
               >
                 Get Help Now
               </motion.button>
-              <motion.button
+             <motion.button
+                onClick={() => setShowProgramModal(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 px-6 py-3 rounded-lg transition hover:bg-indigo-50 dark:hover:bg-gray-800"
@@ -126,16 +157,17 @@ export default function Hero() {
                   className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 border border-transparent hover:border-indigo-100 dark:hover:border-indigo-900"
                 >
                   <div className="text-indigo-600 dark:text-indigo-400 mb-4 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-bold dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-                    {item.content}
-                  </p>
-                </motion.div>
-              ))}
+                   {item.icon}
+</div>
+<h3 className="text-xl font-bold dark:text-white mb-3">
+  {item.title}
+</h3>
+<p className="text-gray-600 dark:text-gray-300">
+  {item.content}
+</p>
+</motion.div>
+))}
+
             </div>
           </motion.div>
         </div>
@@ -361,6 +393,58 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {/* Help Modal */}
+      {showHelpModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+          <div className="bg-white dark:bg-gray-900 rounded-lg p-8 w-full max-w-md relative">
+            <button onClick={() => setShowHelpModal(false)} className="absolute top-2 right-2 text-gray-600 dark:text-gray-400">
+              {/* <X /> */}
+            </button>
+            <h2 className="text-xl font-bold mb-4 dark:text-white">Request Help</h2>
+            <form onSubmit={handleHelpSubmit} className="flex flex-col gap-4">
+              <label className="text-gray-700 dark:text-gray-300">Select Type of Help</label>
+              <select
+                className="p-2 rounded border dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                value={selectedHelp}
+                onChange={(e) => setSelectedHelp(e.target.value)}
+              >
+                {helpTypes.map((type, index) => (
+                  <option key={index} value={type}>{type}</option>
+                ))}
+              </select>
+              <textarea
+                required
+                className="p-2 rounded border dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                placeholder="Tell us more about what you need..."
+                rows={4}
+                value={helpMessage}
+                onChange={(e) => setHelpMessage(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
+              >
+                Send Request
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Program Modal */}
+      {showProgramModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+          <div className="bg-white dark:bg-gray-900 rounded-lg p-8 w-full max-w-xl relative">
+            <button onClick={() => setShowProgramModal(false)} className="absolute top-2 right-2 text-gray-600 dark:text-gray-400">
+              <X />
+            </button>
+            <h2 className="text-xl font-bold mb-4 dark:text-white">Our Programs</h2>
+            <p className="text-gray-700 dark:text-gray-300">
+              At TAR Foundation, we offer a wide range of programs focused on mental health, trauma recovery, addiction support, and community empowerment. Our initiatives are tailored to various age groups and are designed with empathy, care, and evidence-based practices.
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
