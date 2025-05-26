@@ -1,9 +1,5 @@
 import { motion } from "framer-motion";
-import { HeartPulse, HandHeart, Shield, Users, Activity } from "lucide-react";
-import { Eye } from "lucide-react";
-import { Leaf } from "lucide-react";
-import { BarChart2 } from "lucide-react";
-
+import { HeartPulse, HandHeart, Shield, Users, Activity, Eye, Leaf, BarChart2, Target, Award, Clock, School, MessageSquare, ShieldAlert } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -28,14 +24,14 @@ export default function Hero() {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 dark:text-white">
-              <span className="text-indigo-600 dark:text-indigo-400">Healing</span> Minds, <br />
-              Saving <span className="text-indigo-600 dark:text-indigo-400">Lives</span>
+              <span className="text-indigo-500 dark:text-indigo-400">Transforming</span> Mental Health <br />
+              Across <span className="text-indigo-500 dark:text-indigo-400">Nigeria</span> <br />
+              Welcome to <span className="text-indigo-700 dark:text-indigo-700">TAR Foundation</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
-              At MindHeal, we're dedicated to providing compassionate mental health support, 
-              addiction recovery programs, and trauma counseling to those in need. 
-              Every life matters, and we're here to light the path to recovery.
+              Founded in January 2025, TAR Foundation is a Nigerian non-profit dedicated to revolutionizing mental health services, 
+              trauma recovery, and addiction support through advocacy, education, and community programs.
             </p>
             
             <div className="flex flex-wrap gap-4">
@@ -51,7 +47,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 px-6 py-3 rounded-lg transition hover:bg-indigo-50 dark:hover:bg-gray-800"
               >
-                Learn More
+                Learn About Our Programs
               </motion.button>
             </div>
           </motion.div>
@@ -64,15 +60,15 @@ export default function Hero() {
             className="grid grid-cols-2 gap-6"
           >
             {[
-              { icon: <Users className="w-8 h-8" />, number: "1K+", text: "Lives Impacted" },
-              { icon: <Activity className="w-8 h-8" />, number: "85%", text: "Recovery Rate" },
-              { icon: <HandHeart className="w-8 h-8" />, number: "50+", text: "Trained Counselors" },
-              { icon: <Shield className="w-8 h-8" />, number: "24/7", text: "Support Available" },
+              { icon: <Users className="w-8 h-8" />, number: "10K+", text: "Future Counselors to Train" },
+              { icon: <School className="w-8 h-8" />, number: "100+", text: "Schools to Partner With" },
+              { icon: <HandHeart className="w-8 h-8" />, number: "20K", text: "Young Lives to Impact" },
+              { icon: <MessageSquare className="w-8 h-8" />, number: "24/7", text: "Support Channels Available" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -5 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700"
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-500 transition-all duration-300"
               >
                 <div className="text-indigo-600 dark:text-indigo-400 mb-3">
                   {stat.icon}
@@ -96,33 +92,95 @@ export default function Hero() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-4">
-              Our <span className="text-indigo-600 dark:text-indigo-400">Mission</span>
+              Our <span className="text-indigo-600 dark:text-indigo-400">Purpose</span>
             </h2>
             <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" />
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Founded in 2015, MindHeal is a non-profit organization dedicated to 
-              breaking the stigma around mental health and providing accessible 
-              care to underserved communities. We believe every individual deserves 
-              compassionate support on their journey to wellness.
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Our Vision",
+                  content: "To transform access to mental health services in Nigeria.",
+                  icon: <Eye className="w-6 h-6" />
+                },
+                {
+                  title: "Our Mission",
+                  content: "Through advocacy, public awareness, support, intervention and education, TAR ensures individuals get the help they need.",
+                  icon: <Target className="w-6 h-6" />
+                },
+                {
+                  title: "Our Approach",
+                  content: "Holistic, trauma-informed care that addresses mind, body, and community.",
+                  icon: <Leaf className="w-6 h-6" />
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ 
+                    y: -5,
+                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                  }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 border border-transparent hover:border-indigo-100 dark:hover:border-indigo-900"
+                >
+                  <div className="text-indigo-600 dark:text-indigo-400 mb-4 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                    {item.content}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Goals Section */}
+      <div className="bg-indigo-50 dark:bg-gray-800 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-4">
+              Our <span className="text-indigo-600 dark:text-indigo-400">Strategic Goals</span>
+            </h2>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" />
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+              By 2030, TAR Foundation aims to achieve these transformative objectives across Nigeria:
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "Our Vision",
-                content: "A world where mental health care is accessible to all, free from stigma and discrimination.",
-                icon: <Eye className="w-6 h-6" />
+                title: "Stigma Free Nigeria",
+                content: "Remove stigma associated with seeking help for trauma and addiction in schools and communities.",
+                icon: <ShieldAlert className="w-6 h-6" />
               },
               {
-                title: "Our Approach",
-                content: "Holistic, trauma-informed care that addresses mind, body, and community.",
-                icon: <Leaf className="w-6 h-6" />
+                title: "Counselor Training",
+                content: "Educate and equip 10,000 counselors in trauma and addiction detection and recovery services.",
+                icon: <Users className="w-6 h-6" />
               },
               {
-                title: "Our Impact",
-                content: "Transforming lives through evidence-based therapies and community programs.",
-                icon: <BarChart2 className="w-6 h-6" />
+                title: "Support Networks",
+                content: "Establish healing circles and support groups for young men and women across Nigeria.",
+                icon: <HandHeart className="w-6 h-6" />
+              },
+              {
+                title: "Help-Seeking Culture",
+                content: "Develop campaigns that inspire people to speak up and seek help without shame.",
+                icon: <MessageSquare className="w-6 h-6" />
               }
             ].map((item, index) => (
               <motion.div
@@ -130,14 +188,174 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
                 viewport={{ once: true }}
-                className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg"
+                className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-indigo-200 dark:hover:border-indigo-500"
               >
-                <div className="text-indigo-600 dark:text-indigo-400 mb-4">
+                <div className="text-indigo-600 dark:text-indigo-400 mb-4 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold dark:text-white mb-3">{item.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{item.content}</p>
+                <h3 className="text-xl font-bold dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
+                  {item.content}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Programs Section */}
+      <div className="bg-white dark:bg-gray-900 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-4">
+              Our <span className="text-indigo-600 dark:text-indigo-400">Key Programs</span>
+            </h2>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" />
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Comprehensive initiatives designed to address trauma and addiction at every level of Nigerian society.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "StigmaFree Initiatives",
+                content: "Grassroots programs eradicating stigma in communities, colleges, and families across Nigeria.",
+                icon: <Shield className="w-6 h-6" />,
+                initiatives: [
+                  "Community awareness campaigns",
+                  "School-based education programs",
+                  "Family support classes"
+                ]
+              },
+              {
+                title: "Goodbye2Silence",
+                content: "Focused on young adults 14-25, opening conversations about trauma in secondary schools.",
+                icon: <MessageSquare className="w-6 h-6" />,
+                initiatives: [
+                  "School chapters nationwide",
+                  "Peer-to-peer support networks",
+                  "Early intervention strategies"
+                ]
+              },
+              {
+                title: "SeekHelp Resources",
+                content: "Comprehensive support through multiple accessible channels.",
+                icon: <HandHeart className="w-6 h-6" />,
+                initiatives: [
+                  "24/7 WhatsApp chat lines",
+                  "Social media support platforms",
+                  "Nationwide treatment directory",
+                  "Financial assistance programs"
+                ]
+              }
+            ].map((program, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
+                viewport={{ once: true }}
+                className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 border border-transparent hover:border-indigo-100 dark:hover:border-indigo-900"
+              >
+                <div className="text-indigo-600 dark:text-indigo-400 mb-4 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">
+                  {program.icon}
+                </div>
+                <h3 className="text-xl font-bold dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  {program.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                  {program.content}
+                </p>
+                <ul className="space-y-2">
+                  {program.initiatives.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <span className="text-indigo-500 dark:text-indigo-400 mr-2">•</span>
+                      <span className="text-gray-600 dark:text-gray-400">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Policies Section */}
+      <div className="bg-gray-50 dark:bg-gray-800 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-4">
+              Our <span className="text-indigo-600 dark:text-indigo-400">Core Policies</span>
+            </h2>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mb-6" />
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Fundamental principles that guide our operations and ensure ethical practices.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Child Protection",
+                content: "Zero tolerance for child abuse with comprehensive safeguarding measures and reporting protocols.",
+                icon: <ShieldAlert className="w-6 h-6" />
+              },
+              {
+                title: "Anti-Trafficking",
+                content: "Strict prohibition against human trafficking, forced labor, and unlawful child employment.",
+                icon: <Shield className="w-6 h-6" />
+              },
+              {
+                title: "Substance-Free Workplace",
+                content: "Drug-free environment policy with support systems and disciplinary measures.",
+                icon: <HeartPulse className="w-6 h-6" />
+              }
+            ].map((policy, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-indigo-200 dark:hover:border-indigo-500"
+              >
+                <div className="text-indigo-600 dark:text-indigo-400 mb-4 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">
+                  {policy.icon}
+                </div>
+                <h3 className="text-xl font-bold dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  {policy.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
+                  {policy.content}
+                </p>
               </motion.div>
             ))}
           </div>

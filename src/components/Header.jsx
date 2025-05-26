@@ -83,7 +83,7 @@ export default function NavBar() {
               onClick={(e) => scrollToSection(e, '#home')}
               className="text-xl font-bold text-gray-900 dark:text-white"
             >
-              MindHeal
+              <span>TAR</span>
             </a>
           </div>
 
