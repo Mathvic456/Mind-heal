@@ -1,35 +1,33 @@
 import { motion } from "framer-motion";
-import { HeartPulse, HandHeart, Shield, Users, Activity, Eye, Leaf, BarChart2, Target, Award, Clock, School, MessageSquare, ShieldAlert } from "lucide-react";
+import { HeartPulse, HandHeart, Shield, Users, Activity, Eye, Leaf, BarChart2, Target, Award, Clock, School, MessageSquare, ShieldAlert, X } from "lucide-react";
 import { useState } from "react";
 
-
-
-const helpTypes = [
-  "Trauma Counseling",
-  "Addiction Support",
-  "Mental Health Assessment",
-  "Emergency Help",
-  "General Inquiry"
-];
-
-
-
 export default function Hero() {
-
-
   const [showHelpModal, setShowHelpModal] = useState(false);
-  const [showProgramModal, setShowProgramModal] = useState(false);
-  const [selectedHelp, setSelectedHelp] = useState(helpTypes[0]);
-  const [helpMessage, setHelpMessage] = useState("");
+  const [showProgramsModal, setShowProgramsModal] = useState(false);
+  const [selectedHelpType, setSelectedHelpType] = useState("");
+  const [message, setMessage] = useState("");
+
+  const helpTypes = [
+    { id: "trauma", label: "Trauma Support", icon: <ShieldAlert className="w-5 h-5" /> },
+    { id: "addiction", label: "Addiction Recovery", icon: <Activity className="w-5 h-5" /> },
+    { id: "mental-health", label: "Mental Health Counseling", icon: <HeartPulse className="w-5 h-5" /> },
+    { id: "youth-support", label: "Youth Support", icon: <Users className="w-5 h-5" /> },
+    { id: "other", label: "Other Support", icon: <HandHeart className="w-5 h-5" /> }
+  ];
 
   const handleHelpSubmit = (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:contact@tarfoundation.org?subject=${encodeURIComponent(
-      selectedHelp
-    )}&body=${encodeURIComponent(helpMessage)}`;
-    window.location.href = mailtoLink;
+    // Here you would typically send the message to your backend or email service
+    console.log({
+      helpType: selectedHelpType,
+      message: message
+    });
+    alert("Your request has been submitted. We'll get back to you soon.");
+    setShowHelpModal(false);
+    setSelectedHelpType("");
+    setMessage("");
   };
-
 
   return (
     <section className="relative overflow-hidden">
@@ -64,18 +62,18 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-wrap gap-4">
-             <motion.button
-                onClick={() => setShowHelpModal(true)}
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setShowHelpModal(true)}
                 className="bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-6 py-3 rounded-lg transition shadow-lg"
               >
                 Get Help Now
               </motion.button>
-             <motion.button
-                onClick={() => setShowProgramModal(true)}
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setShowProgramsModal(true)}
                 className="border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 px-6 py-3 rounded-lg transition hover:bg-indigo-50 dark:hover:bg-gray-800"
               >
                 Learn About Our Programs
@@ -157,17 +155,16 @@ export default function Hero() {
                   className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 border border-transparent hover:border-indigo-100 dark:hover:border-indigo-900"
                 >
                   <div className="text-indigo-600 dark:text-indigo-400 mb-4 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">
-                   {item.icon}
-</div>
-<h3 className="text-xl font-bold dark:text-white mb-3">
-  {item.title}
-</h3>
-<p className="text-gray-600 dark:text-gray-300">
-  {item.content}
-</p>
-</motion.div>
-))}
-
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                    {item.content}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -393,56 +390,164 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      {/* Help Modal */}
+
+      {/* Get Help Modal */}
       {showHelpModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-white dark:bg-gray-900 rounded-lg p-8 w-full max-w-md relative">
-            <button onClick={() => setShowHelpModal(false)} className="absolute top-2 right-2 text-gray-600 dark:text-gray-400">
-              {/* <X /> */}
-            </button>
-            <h2 className="text-xl font-bold mb-4 dark:text-white">Request Help</h2>
-            <form onSubmit={handleHelpSubmit} className="flex flex-col gap-4">
-              <label className="text-gray-700 dark:text-gray-300">Select Type of Help</label>
-              <select
-                className="p-2 rounded border dark:border-gray-600 dark:bg-gray-800 dark:text-white"
-                value={selectedHelp}
-                onChange={(e) => setSelectedHelp(e.target.value)}
-              >
-                {helpTypes.map((type, index) => (
-                  <option key={index} value={type}>{type}</option>
-                ))}
-              </select>
-              <textarea
-                required
-                className="p-2 rounded border dark:border-gray-600 dark:bg-gray-800 dark:text-white"
-                placeholder="Tell us more about what you need..."
-                rows={4}
-                value={helpMessage}
-                onChange={(e) => setHelpMessage(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
-              >
-                Send Request
-              </button>
-            </form>
-          </div>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+          >
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-bold dark:text-white">Get Help</h3>
+                <button 
+                  onClick={() => setShowHelpModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              
+              <form onSubmit={handleHelpSubmit}>
+                <div className="mb-6">
+                  <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">
+                    What type of help do you need?
+                  </label>
+                  <div className="space-y-2">
+                    {helpTypes.map((type) => (
+                      <div 
+                        key={type.id}
+                        onClick={() => setSelectedHelpType(type.id)}
+                        className={`flex items-center p-3 rounded-lg cursor-pointer border transition-colors ${
+                          selectedHelpType === type.id 
+                            ? 'border-indigo-500 bg-indigo-50 dark:bg-gray-700' 
+                            : 'border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
+                        }`}
+                      >
+                        <span className="text-indigo-500 dark:text-indigo-400 mr-3">
+                          {type.icon}
+                        </span>
+                        <span className="dark:text-gray-200">{type.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="mb-6">
+                  <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">
+                    Tell us more about what you need
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                    placeholder="Please describe your situation and how we can help..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                  />
+                </div>
+                
+                <div className="flex justify-end gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setShowHelpModal(false)}
+                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
+                  >
+                    Send Request
+                  </button>
+                </div>
+              </form>
+            </div>
+          </motion.div>
         </div>
       )}
 
-      {/* Program Modal */}
-      {showProgramModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-          <div className="bg-white dark:bg-gray-900 rounded-lg p-8 w-full max-w-xl relative">
-            <button onClick={() => setShowProgramModal(false)} className="absolute top-2 right-2 text-gray-600 dark:text-gray-400">
-              <X />
-            </button>
-            <h2 className="text-xl font-bold mb-4 dark:text-white">Our Programs</h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              At TAR Foundation, we offer a wide range of programs focused on mental health, trauma recovery, addiction support, and community empowerment. Our initiatives are tailored to various age groups and are designed with empathy, care, and evidence-based practices.
-            </p>
-          </div>
+      {/* Programs Modal */}
+      {showProgramsModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          >
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-bold dark:text-white">Our Programs</h3>
+                <button 
+                  onClick={() => setShowProgramsModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="border-b border-gray-200 dark:border-gray-700 pb-6">
+                  <h4 className="text-xl font-semibold dark:text-white mb-3 flex items-center">
+                    <Shield className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mr-2" />
+                    StigmaFree Initiatives
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 mb-3">
+                    Grassroots programs eradicating stigma in communities, colleges, and families across Nigeria.
+                  </p>
+                  <ul className="space-y-2 pl-5">
+                    <li className="text-gray-600 dark:text-gray-300">• Community awareness campaigns</li>
+                    <li className="text-gray-600 dark:text-gray-300">• School-based education programs</li>
+                    <li className="text-gray-600 dark:text-gray-300">• Family support classes</li>
+                  </ul>
+                </div>
+                
+                <div className="border-b border-gray-200 dark:border-gray-700 pb-6">
+                  <h4 className="text-xl font-semibold dark:text-white mb-3 flex items-center">
+                    <MessageSquare className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mr-2" />
+                    Goodbye2Silence
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 mb-3">
+                    Focused on young adults 14-25, opening conversations about trauma in secondary schools.
+                  </p>
+                  <ul className="space-y-2 pl-5">
+                    <li className="text-gray-600 dark:text-gray-300">• School chapters nationwide</li>
+                    <li className="text-gray-600 dark:text-gray-300">• Peer-to-peer support networks</li>
+                    <li className="text-gray-600 dark:text-gray-300">• Early intervention strategies</li>
+                  </ul>
+                </div>
+                
+                <div className="pb-2">
+                  <h4 className="text-xl font-semibold dark:text-white mb-3 flex items-center">
+                    <HandHeart className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mr-2" />
+                    SeekHelp Resources
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300 mb-3">
+                    Comprehensive support through multiple accessible channels.
+                  </p>
+                  <ul className="space-y-2 pl-5">
+                    <li className="text-gray-600 dark:text-gray-300">• 24/7 WhatsApp chat lines</li>
+                    <li className="text-gray-600 dark:text-gray-300">• Social media support platforms</li>
+                    <li className="text-gray-600 dark:text-gray-300">• Nationwide treatment directory</li>
+                    <li className="text-gray-600 dark:text-gray-300">• Financial assistance programs</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="mt-6 flex justify-end">
+                <button
+                  onClick={() => setShowProgramsModal(false)}
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </div>
       )}
     </section>
