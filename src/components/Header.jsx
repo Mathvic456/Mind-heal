@@ -280,6 +280,22 @@ export default function NavBar() {
               >
                 Get Help
               </motion.a>
+               <motion.a
+                href="#assessment"
+                onClick={(e) => {
+                  scrollToSection(e, '#assessment');
+                  setMobileMenuOpen(false);
+                }}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ 
+                  x: 0, 
+                  opacity: 1,
+                  transition: { duration: 0.2, delay: 0.1 }
+                }}
+                className="block mt-4 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center transition"
+              >
+                Quick assessment?
+              </motion.a>
             </div>
           </motion.div>
         )}
