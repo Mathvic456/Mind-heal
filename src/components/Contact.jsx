@@ -75,7 +75,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-medium dark:text-white">Email</h4>
                     <a href="mailto:contact@mindheal.org" className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                      contact@mindheal.org
+                      Tar@gmail.com
                     </a>
                   </div>
                 </div>
