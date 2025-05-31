@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#e6f7ee] to-[#c1f0d9] dark:from-white-900 dark:to-white-800 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#e6f7ee] to-[#c1f0d9] dark:from-gray-900 dark:to-gray-800 -z-10" />
       
       {/* Main Hero Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
