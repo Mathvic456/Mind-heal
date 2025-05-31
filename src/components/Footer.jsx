@@ -71,7 +71,7 @@ const LoadingModal = () => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
     <div className="bg-gray-800 rounded-xl p-8 max-w-xs w-full mx-4 flex flex-col items-center">
       <Loader2 className="h-8 w-8 text-emerald-400 animate-spin mb-4" />
-      <p className="text-white">Loading content...</p>
+      <p className="text-white">Loading</p>
     </div>
   </div>
 );
@@ -118,6 +118,155 @@ const AboutContent = () => (
   </div>
 );
 
+const AddictionContent = () => (
+  <div className="space-y-4">
+    <p>Our addiction recovery program helps individuals overcome substance dependence and build sustainable, healthy lives.</p>
+    <p>We provide:</p>
+    <ul className="list-disc pl-5 space-y-2">
+      <li>Personalized treatment plans</li>
+      <li>Detox and rehabilitation support</li>
+      <li>Counseling and behavioral therapy</li>
+      <li>Aftercare and relapse prevention</li>
+    </ul>
+    <p>Recovery is a journey—we’re here every step of the way.</p>
+  </div>
+);
+
+
+const TraumaContent = () => (
+  <div className="space-y-4">
+    <p>Our trauma counseling sessions provide a safe space to process and heal from past emotional or physical traumas.</p>
+    <p>We specialize in:</p>
+    <ul className="list-disc pl-5 space-y-2">
+      <li>Childhood trauma</li>
+      <li>Abuse and neglect</li>
+      <li>Loss and grief</li>
+      <li>Domestic violence</li>
+    </ul>
+    <p>You are not alone—let’s walk the path to healing together.</p>
+  </div>
+);
+
+
+const FamilyContent = () => (
+  <div className="space-y-4">
+    <p>Family therapy aims to resolve conflicts and improve communication within families.</p>
+    <p>We help families:</p>
+    <ul className="list-disc pl-5 space-y-2">
+      <li>Navigate life transitions</li>
+      <li>Address behavioral challenges</li>
+      <li>Heal from shared trauma</li>
+      <li>Build healthy boundaries and understanding</li>
+    </ul>
+  </div>
+);
+
+const GroupContent = () => (
+  <div className="space-y-4">
+    <p>Group sessions provide a supportive environment where individuals with similar experiences can connect and grow together.</p>
+    <p>Topics include:</p>
+    <ul className="list-disc pl-5 space-y-2">
+      <li>Managing anxiety and depression</li>
+      <li>Grief and loss</li>
+      <li>Substance recovery</li>
+      <li>Parenting and relationships</li>
+    </ul>
+    <p>Healing is better together.</p>
+  </div>
+);
+
+
+const TeamContent = () => (
+  <div className="space-y-4">
+    <p>Our multidisciplinary team includes licensed therapists, clinical psychologists, psychiatrists, and wellness coaches.</p>
+    <p>Every professional on our team is committed to providing evidence-based, compassionate care.</p>
+    <p>Meet the people who make TAR a safe place to heal and grow.</p>
+  </div>
+);
+
+
+const StoriesContent = () => (
+  <div className="space-y-4">
+    <p>Over the years, we’ve helped thousands of individuals reclaim their lives.</p>
+    <p>Read inspiring testimonials from clients who overcame trauma, addiction, and mental health challenges through our services.</p>
+    <p>Your story of transformation could be next.</p>
+  </div>
+);
+
+
+const CareersContent = () => (
+  <div className="space-y-4">
+    <p>Join a team that’s making a real impact in mental health care across Nigeria.</p>
+    <p>We’re hiring compassionate, skilled professionals in various fields:</p>
+    <ul className="list-disc pl-5 space-y-2">
+      <li>Therapists and psychologists</li>
+      <li>Support staff</li>
+      <li>Outreach coordinators</li>
+      <li>Marketing and admin roles</li>
+    </ul>
+    <p>Grow your career while changing lives.</p>
+  </div>
+);
+
+
+const PressContent = () => (
+  <div className="space-y-4">
+    <p>Looking to feature TAR in your publication or media project?</p>
+    <p>Our press kit includes logos, photos, press releases, and information about our mission and services.</p>
+    <p>Contact us for media inquiries and collaborations.</p>
+  </div>
+);
+
+
+const PhoneContent = () => (
+  <div className="space-y-4">
+    <p>You can reach our support team by phone:</p>
+    <p className="font-semibold text-white">+234 812 345 6789</p>
+    <p>Available Monday to Friday, 8 AM – 6 PM WAT.</p>
+  </div>
+);
+
+
+const EmailContent = () => (
+  <div className="space-y-4">
+    <p>For general inquiries, appointments, or media requests, email us at:</p>
+    <p className="font-semibold text-white">Tar@gmail.com</p>
+    <p>We typically respond within 24 hours.</p>
+  </div>
+);
+
+const LocationContent = () => (
+  <div className="space-y-4">
+    <p>Visit us at our head office:</p>
+    <p className="font-semibold text-white">123 Healing Avenue, Lagos, Nigeria</p>
+    <p>Our space is designed to be warm, welcoming, and confidential.</p>
+  </div>
+);
+
+
+const TermsContent = () => (
+  <div className="space-y-4 text-sm">
+    <p>By accessing or using our services, you agree to the following terms:</p>
+    <ul className="list-disc pl-5 space-y-2">
+      <li>Services are intended for individuals 18 years or older, or with guardian consent.</li>
+      <li>All consultations are confidential, barring situations of imminent harm.</li>
+      <li>We reserve the right to update these terms at any time.</li>
+    </ul>
+    <p>Please read our full Terms of Service for more details.</p>
+  </div>
+);
+
+
+const CookiesContent = () => (
+  <div className="space-y-4 text-sm">
+    <p>We use cookies to improve your browsing experience and analyze site traffic.</p>
+    <p>You can choose to accept or decline cookies. Declining may limit some features of the site.</p>
+    <p>For more info, review our full Cookies Policy.</p>
+  </div>
+);
+
+
+
 const PrivacyContent = () => (
   <div className="space-y-4 text-sm">
     <p>We take your privacy seriously. This policy explains how we collect, use, and protect your personal information.</p>
@@ -163,20 +312,20 @@ export default function Footer() {
       title: "Services",
       links: [
         { name: "Mental Health Therapy", modal: "therapy", content: <TherapyContent /> },
-        { name: "Addiction Recovery", modal: "addiction", content: <div>Addiction recovery content...</div> },
-        { name: "Trauma Counseling", modal: "trauma", content: <div>Trauma counseling content...</div> },
-        { name: "Family Therapy", modal: "family", content: <div>Family therapy content...</div> },
-        { name: "Group Sessions", modal: "group", content: <div>Group sessions content...</div> }
+        { name: "Addiction Recovery", modal: "addiction", content: <AddictionContent /> },
+        { name: "Trauma Counseling", modal: "trauma", content: <TraumaContent /> },
+        { name: "Family Therapy", modal: "family", content: <FamilyContent /> },
+        { name: "Group Sessions", modal: "group", content: <GroupContent /> }
       ]
     },
     {
       title: "Company",
       links: [
         { name: "About Us", modal: "about", content: <AboutContent /> },
-        { name: "Our Team", modal: "team", content: <div>Our team content...</div> },
-        { name: "Success Stories", modal: "stories", content: <div>Success stories content...</div> },
-        { name: "Careers", modal: "careers", content: <div>Careers content...</div> },
-        { name: "Press Kit", modal: "press", content: <div>Press kit content...</div> }
+        { name: "Our Team", modal: "team", content: <TeamContent/> },
+        { name: "Success Stories", modal: "stories", content: <StoriesContent/> },
+        { name: "Careers", modal: "careers", content: <CareersContent /> },
+        { name: "Press Kit", modal: "press", content: <PressContent /> }
       ]
     },
     {
@@ -220,8 +369,8 @@ export default function Footer() {
 
   const legalLinks = [
     { name: "Privacy Policy", modal: "privacy", content: <PrivacyContent /> },
-    { name: "Terms of Service", modal: "terms", content: <div>Terms of service content...</div> },
-    { name: "Cookies", modal: "cookies", content: <div>Cookies policy content...</div> }
+    { name: "Terms of Service", modal: "terms", content: <TermsContent /> },
+    { name: "Cookies", modal: "cookies", content: <CookiesContent /> }
   ];
 
   const socialLinks = [
@@ -422,7 +571,7 @@ export default function Footer() {
             transition={{ delay: 0.2 }}
             className="text-gray-500 text-sm"
           >
-            © {new Date().getFullYear()} MindHeal. All rights reserved.
+            © {new Date().getFullYear()} TAR. All rights reserved.
           </motion.p>
 
           <div className="flex gap-6">

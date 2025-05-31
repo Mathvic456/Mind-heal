@@ -107,9 +107,9 @@ export default function ContactPage() {
               <div className="mt-8">
                 <h4 className="font-medium dark:text-white mb-4">Follow Us</h4>
                 <div className="flex gap-4">
-                  <SocialLink icon={<Facebook />} href="https://facebook.com/mindheal" />
-                  <SocialLink icon={<Twitter />} href="https://twitter.com/mindheal" />
-                  <SocialLink icon={<Instagram />} href="https://instagram.com/mindheal" />
+                  <SocialLink icon={<Facebook />} href="https://facebook.com/TAR" />
+                  <SocialLink icon={<Twitter />} href="https://twitter.com/TAR" />
+                  <SocialLink icon={<Instagram />} href="https://instagram.com/TAR" />
                 </div>
               </div>
             </div>

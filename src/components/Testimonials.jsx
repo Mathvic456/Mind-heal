@@ -16,12 +16,12 @@ export default function Testimonials() {
   
   const stories = [
     {
-      quote: "After years of struggling with depression, MindHeal gave me my life back. The therapists understood me in ways no one else did.",
+      quote: "After years of struggling with depression, TAR gave me my life back. The therapists understood me in ways no one else did.",
       author: "Peter S.",
       role: "Depression Recovery",
       rating: 5,
       image: sarah,
-      fullStory: "I had tried three different therapists before finding MindHeal. Within weeks, their cognitive behavioral therapy approach helped me break negative thought patterns that had plagued me for a decade. Today I'm medication-free and living joyfully."
+      fullStory: "I had tried three different therapists before finding TAR. Within weeks, their cognitive behavioral therapy approach helped me break negative thought patterns that had plagued me for a decade. Today I'm medication-free and living joyfully."
     },
     {
       quote: "The addiction program saved my marriage and my career. 18 months sober thanks to their incredible support system.",
