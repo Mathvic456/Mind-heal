@@ -201,7 +201,7 @@ function SocialLink({ href, icon }) {
       href={href}
       target="_blank"
       whileHover={{ y: -3 }}
-      className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
+      className="p-3 bg-white-100 dark:bg-white-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
     >
       {icon}
     </motion.a>

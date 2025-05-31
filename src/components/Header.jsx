@@ -19,9 +19,14 @@ export default function NavBar() {
   // Initialize dark mode
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDark(savedMode ? savedMode === 'true' : systemPrefersDark);
-    document.documentElement.classList.toggle('dark', savedMode ? savedMode === 'true' : systemPrefersDark);
+    if (savedMode) {
+      setIsDark(savedMode === 'true');
+      document.documentElement.classList.toggle('dark', savedMode === 'true');
+    } else {
+      // Default to light mode if no preference is saved
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    }
   }, []);
 
   // Sticky scroll behavior
@@ -144,17 +149,17 @@ export default function NavBar() {
           {/* Right side controls */}
           <div className="flex items-center gap-4">
             {/* Dark Mode Toggle */}
-            {/* <button
+            <button
               onClick={toggleDarkMode}
               className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              aria-label={`Switch to ${isDark ? 'light' : 'light'} mode`}
+              aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
             >
               {isDark ? (
                 <Sun className="w-5 h-5 text-amber-300" />
               ) : (
                 <Moon className="w-5 h-5 text-gray-700" />
               )}
-            </button> */}
+            </button>
 
             {/* CTA Button - Desktop */}
             <motion.a
