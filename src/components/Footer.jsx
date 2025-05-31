@@ -70,7 +70,7 @@ const GenericModal = ({ title, children, onClose }) => (
 const LoadingModal = () => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
     <div className="bg-gray-800 rounded-xl p-8 max-w-xs w-full mx-4 flex flex-col items-center">
-      <Loader2 className="h-8 w-8 text-indigo-400 animate-spin mb-4" />
+      <Loader2 className="h-8 w-8 text-emerald-400 animate-spin mb-4" />
       <p className="text-white">Loading content...</p>
     </div>
   </div>
@@ -87,7 +87,7 @@ const SuccessModal = ({ message, onClose }) => (
       <p className="text-white text-center mb-6">{message}</p>
       <button 
         onClick={onClose}
-        className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition"
+        className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg transition"
       >
         Close
       </button>
@@ -285,7 +285,7 @@ export default function Footer() {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute bottom-20 left-10 w-16 h-16 rounded-full bg-indigo-900/20 blur-xl"
+        className="absolute bottom-20 left-10 w-16 h-16 rounded-full bg-emerald-900/20 blur-xl"
       />
       
       <div className="max-w-7xl mx-auto">
@@ -299,7 +299,7 @@ export default function Footer() {
             className="space-y-6"
           >
             <div className="flex items-center gap-2">
-              <Logo className="w-8 h-8 text-indigo-400" />
+              <Logo className="w-8 h-8 text-emerald-400" />
               <span className="text-2xl font-bold text-white">TAR</span>
             </div>
             <p className="text-gray-400">
@@ -315,14 +315,14 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email" 
-                  className="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
+                  className="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full"
                   required
                 />
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-r-lg transition flex items-center justify-center min-w-[80px]"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-r-lg transition flex items-center justify-center min-w-[80px]"
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -351,9 +351,9 @@ export default function Footer() {
                     <motion.button
                       whileHover={{ x: 5 }}
                       onClick={() => openModal(link.modal)}
-                      className="text-gray-400 hover:text-indigo-400 transition flex items-center gap-2 w-full text-left"
+                      className="text-gray-400 hover:text-emerald-400 transition flex items-center gap-2 w-full text-left"
                     >
-                      <span className="w-1 h-1 bg-indigo-400 rounded-full opacity-0 group-hover:opacity-100 transition" />
+                      <span className="w-1 h-1 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 transition" />
                       {link.name}
                     </motion.button>
                   </li>
@@ -373,10 +373,10 @@ export default function Footer() {
             <ul className="space-y-4">
               {contactInfo.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <div className="text-indigo-400 mt-0.5">{item.icon}</div>
+                  <div className="text-emerald-400 mt-0.5">{item.icon}</div>
                   <button 
                     onClick={() => openModal(item.modal)}
-                    className="text-gray-400 hover:text-indigo-400 text-left"
+                    className="text-gray-400 hover:text-emerald-400 text-left"
                   >
                     {item.text}
                   </button>
@@ -394,7 +394,7 @@ export default function Footer() {
                     href={social.url}
                     aria-label={social.name}
                     whileHover={{ y: -5 }}
-                    className="bg-gray-800 hover:bg-indigo-600 text-gray-300 hover:text-white p-2 rounded-full transition"
+                    className="bg-gray-800 hover:bg-emerald-600 text-gray-300 hover:text-white p-2 rounded-full transition"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -433,7 +433,7 @@ export default function Footer() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3 + (index * 0.1) }}
-                className="text-gray-500 hover:text-indigo-400 text-sm transition"
+                className="text-gray-500 hover:text-emerald-400 text-sm transition"
               >
                 {link.name}
               </motion.button>

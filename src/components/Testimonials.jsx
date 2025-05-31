@@ -102,9 +102,9 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-16 md:py-24 px-4 relative bg-gradient-to-b from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section className="py-16 md:py-24 px-4 relative bg-gradient-to-b from-emerald-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Floating decorative elements */}
-      <div className="absolute top-20 left-10 w-16 h-16 rounded-full bg-indigo-200/30 dark:bg-indigo-900/20 blur-xl" />
+      <div className="absolute top-20 left-10 w-16 h-16 rounded-full bg-emerald-200/30 dark:bg-emerald-900/20 blur-xl" />
       <div className="absolute bottom-20 right-10 w-24 h-24 rounded-full bg-purple-200/20 dark:bg-purple-900/20 blur-xl" />
 
       <div className="max-w-7xl mx-auto">
@@ -114,7 +114,7 @@ export default function Testimonials() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white mb-4">
-            Stories of <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Hope</span>
+            Stories of <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-purple-600">Hope</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Real people, real transformations. Hear from those who've walked the path to healing.
@@ -174,12 +174,12 @@ export default function Testimonials() {
                   <h3 className="text-xl md:text-2xl font-bold dark:text-white mb-2">
                     {stories[currentIndex].author}
                   </h3>
-                  <p className="text-indigo-600 dark:text-indigo-400 mb-4 md:mb-6">
+                  <p className="text-emerald-600 dark:text-emerald-400 mb-4 md:mb-6">
                     {stories[currentIndex].role}
                   </p>
                   
                   <div className="flex items-start gap-4 mb-4 md:mb-6">
-                    <div className="p-2 md:p-3 bg-indigo-100 dark:bg-indigo-900/50 rounded-full text-indigo-600 dark:text-indigo-400 mt-1">
+                    <div className="p-2 md:p-3 bg-emerald-100 dark:bg-emerald-900/50 rounded-full text-emerald-600 dark:text-emerald-400 mt-1">
                       <Heart className="w-5 h-5 md:w-6 md:h-6" />
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 flex-1">
@@ -201,14 +201,14 @@ export default function Testimonials() {
           <div className="md:hidden flex justify-center gap-4 absolute bottom-2 left-0 right-0">
             <button 
               onClick={() => goToSlide((currentIndex - 1 + stories.length) % stories.length)}
-              className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/30 dark:border-gray-700/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all z-20"
+              className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/30 dark:border-gray-700/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-all z-20"
               aria-label="Previous story"
             >
               <ChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
             </button>
             <button 
               onClick={() => goToSlide((currentIndex + 1) % stories.length)}
-              className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/30 dark:border-gray-700/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all z-20"
+              className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/30 dark:border-gray-700/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-all z-20"
               aria-label="Next story"
             >
               <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
@@ -219,14 +219,14 @@ export default function Testimonials() {
           <div className="hidden md:block">
             <button 
               onClick={() => goToSlide((currentIndex - 1 + stories.length) % stories.length)}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/30 dark:border-gray-700/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/30 dark:border-gray-700/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-all"
               aria-label="Previous story"
             >
               <ChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-300" />
             </button>
             <button 
               onClick={() => goToSlide((currentIndex + 1) % stories.length)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/30 dark:border-gray-700/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/30 dark:border-gray-700/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-all"
               aria-label="Next story"
             >
               <ChevronRight className="w-6 h-6 text-gray-700 dark:text-gray-300" />
@@ -240,7 +240,7 @@ export default function Testimonials() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${currentIndex === index ? 'bg-indigo-600 dark:bg-indigo-400 w-4 md:w-6' : 'bg-gray-300 dark:bg-gray-600'}`}
+              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${currentIndex === index ? 'bg-emerald-600 dark:bg-emerald-400 w-4 md:w-6' : 'bg-gray-300 dark:bg-gray-600'}`}
               aria-label={`Go to story ${index + 1}`}
             />
           ))}

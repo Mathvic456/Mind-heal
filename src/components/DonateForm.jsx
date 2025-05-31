@@ -76,7 +76,7 @@ export default function DonateForm() {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute -left-20 top-1/4 w-32 h-32 rounded-full bg-indigo-400/10 blur-xl -z-10"
+        className="absolute -left-20 top-1/4 w-32 h-32 rounded-full bg-emerald-400/10 blur-xl -z-10"
       />
       
       <motion.div
@@ -99,7 +99,7 @@ export default function DonateForm() {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 blur-lg opacity-20 -z-10"
+          className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-purple-600 blur-lg opacity-20 -z-10"
         />
 
         <motion.div
@@ -113,7 +113,7 @@ export default function DonateForm() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex p-4 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 mb-4"
+                className="inline-flex p-4 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 mb-4"
               >
                 <HeartHandshake className="w-10 h-10" />
               </motion.div>
@@ -138,7 +138,7 @@ export default function DonateForm() {
                     key={freq.value}
                     type="button"
                     onClick={() => setFormData({...formData, frequency: freq.value})}
-                    className={`py-2 px-4 rounded-lg border transition-all ${formData.frequency === freq.value ? 'bg-indigo-100 dark:bg-indigo-900/50 border-indigo-500 dark:border-indigo-400 text-indigo-600 dark:text-indigo-300' : 'border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700/50'}`}
+                    className={`py-2 px-4 rounded-lg border transition-all ${formData.frequency === freq.value ? 'bg-emerald-100 dark:bg-emerald-900/50 border-emerald-500 dark:border-emerald-400 text-emerald-600 dark:text-emerald-300' : 'border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700/50'}`}
                   >
                     {freq.label}
                   </button>
@@ -202,7 +202,7 @@ export default function DonateForm() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setFormData({...formData, amount: amount.toString()})}
-                      className={`py-2 px-4 rounded-lg border transition-all flex items-center justify-center gap-1 ${formData.amount === amount.toString() ? 'bg-indigo-100 dark:bg-indigo-900/50 border-indigo-500 dark:border-indigo-400' : 'border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700/50'}`}
+                      className={`py-2 px-4 rounded-lg border transition-all flex items-center justify-center gap-1 ${formData.amount === amount.toString() ? 'bg-emerald-100 dark:bg-emerald-900/50 border-emerald-500 dark:border-emerald-400' : 'border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700/50'}`}
                     >
                       <NairaIcon className="w-4 h-4" />
                       {amount.toLocaleString()}
@@ -237,7 +237,7 @@ export default function DonateForm() {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-4 px-6 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg"
+                className="w-full bg-gradient-to-r from-emerald-600 to-purple-600 hover:from-emerald-700 hover:to-purple-700 text-white py-4 px-6 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg"
               >
                 {isSubmitting ? (
                   <>
@@ -297,7 +297,7 @@ export default function DonateForm() {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setShowSuccess(false)}
-                  className="bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-6 py-3 rounded-lg transition inline-flex items-center gap-2"
+                  className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition inline-flex items-center gap-2"
                 >
                   Close
                 </motion.button>
