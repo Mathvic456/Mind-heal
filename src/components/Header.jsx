@@ -83,7 +83,7 @@ export default function NavBar() {
               onClick={(e) => scrollToSection(e, '#home')}
               className="text-xl font-bold text-gray-900 dark:text-white"
             >
-              <span>TAR</span>
+              <span className="bg-gradient-to-r from-[#01bf61] to-[#2dde98] bg-clip-text text-transparent">TAR</span>
             </a>
           </div>
 
@@ -97,7 +97,7 @@ export default function NavBar() {
                     onMouseLeave={() => setActiveDropdown(null)}
                     className="relative"
                   >
-                    <button className="flex items-center text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+                    <button className="flex items-center text-gray-700 dark:text-gray-300 hover:text-[#01bf61] dark:hover:text-[#2dde98] transition-colors font-medium">
                       {item.name}
                       <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
                     </button>
@@ -117,7 +117,7 @@ export default function NavBar() {
                                 key={subItem.name}
                                 href={subItem.href}
                                 onClick={(e) => scrollToSection(e, subItem.href)}
-                                className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-[#01bf61]/10 dark:hover:bg-[#2dde98]/10 hover:text-[#01bf61] dark:hover:text-[#2dde98]"
                               >
                                 {subItem.name}
                               </a>
@@ -132,7 +132,7 @@ export default function NavBar() {
                     href={item.href}
                     onClick={(e) => scrollToSection(e, item.href)}
                     whileHover={{ y: -2 }}
-                    className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+                    className="text-gray-700 dark:text-gray-300 hover:text-[#01bf61] dark:hover:text-[#2dde98] transition-colors font-medium"
                   >
                     {item.name}
                   </motion.a>
@@ -162,7 +162,7 @@ export default function NavBar() {
               onClick={(e) => scrollToSection(e, '#contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="hidden md:block bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-4 py-2 rounded-lg transition"
+              className="hidden md:block bg-gradient-to-r from-[#01bf61] to-[#2dde98] hover:from-[#00a955] hover:to-[#25d18a] text-white px-4 py-2 rounded-lg transition shadow-md hover:shadow-lg"
             >
               Get Help
             </motion.a>
@@ -213,7 +213,7 @@ export default function NavBar() {
                     <div className="space-y-1">
                       <button 
                         onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                        className="w-full flex justify-between items-center py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-md font-medium"
+                        className="w-full flex justify-between items-center py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-[#01bf61] dark:hover:text-[#2dde98] rounded-md font-medium"
                       >
                         {item.name}
                         <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
@@ -235,7 +235,7 @@ export default function NavBar() {
                                   scrollToSection(e, subItem.href);
                                   setActiveDropdown(null);
                                 }}
-                                className="block py-2 px-3 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-md"
+                                className="block py-2 px-3 text-gray-600 dark:text-gray-400 hover:text-[#01bf61] dark:hover:text-[#2dde98] rounded-md"
                               >
                                 {subItem.name}
                               </a>
@@ -257,7 +257,7 @@ export default function NavBar() {
                         opacity: 1,
                         transition: { duration: 0.2 }
                       }}
-                      className="block py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-md font-medium"
+                      className="block py-2 px-3 text-gray-700 dark:text-gray-300 hover:text-[#01bf61] dark:hover:text-[#2dde98] rounded-md font-medium"
                     >
                       {item.name}
                     </motion.a>
@@ -276,11 +276,11 @@ export default function NavBar() {
                   opacity: 1,
                   transition: { duration: 0.2, delay: 0.1 }
                 }}
-                className="block mt-4 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center transition"
+                className="block mt-4 bg-gradient-to-r from-[#01bf61] to-[#2dde98] hover:from-[#00a955] hover:to-[#25d18a] text-white px-4 py-2 rounded-lg text-center transition shadow-md hover:shadow-lg"
               >
                 Get Help
               </motion.a>
-               <motion.a
+              <motion.a
                 href="#assessment"
                 onClick={(e) => {
                   scrollToSection(e, '#assessment');
@@ -292,7 +292,7 @@ export default function NavBar() {
                   opacity: 1,
                   transition: { duration: 0.2, delay: 0.1 }
                 }}
-                className="block mt-4 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center transition"
+                className="block mt-4 bg-gradient-to-r from-[#01bf61] to-[#2dde98] hover:from-[#00a955] hover:to-[#25d18a] text-white px-4 py-2 rounded-lg text-center transition shadow-md hover:shadow-lg"
               >
                 Quick assessment?
               </motion.a>
