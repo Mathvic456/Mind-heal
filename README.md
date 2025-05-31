@@ -38,8 +38,6 @@ Next.js – Server-side rendering and optimized performance
 
 Tailwind CSS – Utility-first styling
 
-Stripe – Payment processing
-
 Context API – Global state management
 
 Modern React Hooks – For component logic and state handling
