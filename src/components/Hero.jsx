@@ -1,12 +1,26 @@
 import { motion } from "framer-motion";
 import { HeartPulse, HandHeart, Shield, Users, Activity, Eye, Leaf, BarChart2, Target, Award, Clock, School, MessageSquare, ShieldAlert, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
   const [showHelpModal, setShowHelpModal] = useState(false);
   const [showProgramsModal, setShowProgramsModal] = useState(false);
   const [selectedHelpType, setSelectedHelpType] = useState("");
   const [message, setMessage] = useState("");
+  const [isDark, setIsDark] = useState(false);
+
+  // Initialize dark mode - default to light mode
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode) {
+      setIsDark(savedMode === 'true');
+      document.documentElement.classList.toggle('dark', savedMode === 'true');
+    } else {
+      // Default to light mode if no preference is saved
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
 
   const helpTypes = [
     { id: "trauma", label: "Trauma Support", icon: <ShieldAlert className="w-5 h-5" /> },
